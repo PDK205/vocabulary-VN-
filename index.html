@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Vocab">
+<title>Vocab</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1b1d29;--mu:#7b8094;--ac:#4f6df5;--ok:#1fa971;--bad:#e5484d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101219;--card:#1b1e2b;--tx:#f0f1f7;--mu:#8a90a8}}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,"SF Pro Text",Helvetica,Arial,sans-serif;overflow:hidden;touch-action:none}
+#app{height:100%;display:flex;flex-direction:column;padding:20px}
+.top{display:flex;justify-content:space-between;color:var(--mu);font-size:14px;height:24px}
+.main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:transform .25s,opacity .25s}
+.out{transform:translateY(-60px);opacity:0}
+.card{background:var(--card);border-radius:24px;padding:36px 24px;width:100%;max-width:420px;box-shadow:0 8px 30px rgba(0,0,0,.07)}
+h1{font-size:40px;margin:0 0 12px}.vi{font-size:22px;color:var(--ac);margin-bottom:20px}.ex{color:var(--mu);font-size:16px;font-style:italic;line-height:1.5}
+.hint{color:var(--mu);font-size:13px;padding:12px;text-align:center}
+button{font:inherit;border:0;border-radius:14px;padding:16px;width:100%;max-width:420px;margin:8px 0;background:var(--ac);color:#fff;font-weight:600;font-size:17px}
+button.alt{background:var(--card);color:var(--tx)}
+input{font:inherit;font-size:22px;width:100%;padding:14px;border-radius:14px;border:2px solid var(--mu);background:var(--bg);color:var(--tx);text-align:center;margin-top:16px}
+.r{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bg);font-size:16px}
+.g{color:var(--ok)}.b{color:var(--bad)}
+</style></head><body><div id="app"></div>
+<script>
+const R=s=>s.trim().split('\n').map(l=>l.split('|'));
+const D={ielts:R(`
+mitigate|giảm nhẹ, làm dịu|Trees help mitigate the effects of climate change.
+substantial|đáng kể|There was a substantial increase in sales.
+adverse|bất lợi|The drug has adverse side effects.
+comprehensive|toàn diện|She wrote a comprehensive report.
+fluctuate|dao động|Prices fluctuate throughout the year.
+inevitable|không thể tránh khỏi|Change is inevitable.
+controversial|gây tranh cãi|It is a controversial decision.
+sustainable|bền vững|We need sustainable energy sources.
+phenomenon|hiện tượng|Global warming is a worldwide phenomenon.
+hypothesis|giả thuyết|The hypothesis was tested in the lab.
+deteriorate|xấu đi|His health began to deteriorate.
+enhance|nâng cao|Reading can enhance your vocabulary.
+detrimental|có hại|Smoking is detrimental to health.
+prevalent|phổ biến, thịnh hành|Obesity is prevalent in many countries.
+alleviate|làm giảm bớt|Aid can alleviate poverty.
+scrutinize|xem xét kỹ|Experts scrutinize every detail.
+inherent|vốn có|There are inherent risks in investing.
+implement|thực thi|The government will implement new laws.
+coherent|mạch lạc|Your essay should be coherent.
+ambiguous|mơ hồ, nhập nhằng|The question is ambiguous.
+viable|khả thi|Solar power is a viable option.
+undermine|làm suy yếu|Noise can undermine concentration.
+proportion|tỷ lệ|A large proportion of students study abroad.
+diminish|giảm đi|Interest began to diminish.
+exacerbate|làm trầm trọng thêm|Stress can exacerbate illness.
+discrepancy|sự chênh lệch|There is a discrepancy in the data.
+indigenous|bản địa|Indigenous people protect the forest.
+pivotal|then chốt|She played a pivotal role.
+trigger|gây ra, kích hoạt|Dust can trigger allergies.
+advocate|ủng hộ, người ủng hộ|Many advocate free education.
+overwhelming|áp đảo|The evidence is overwhelming.
+rudimentary|sơ đẳng|They had rudimentary tools.
+foster|thúc đẩy, nuôi dưỡng|Schools should foster creativity.
+curtail|cắt giảm|The city curtailed spending.
+pertinent|thích đáng, liên quan|Please give pertinent details.
+conventional|truyền thống, thông thường|Conventional methods are slow.
+resilient|kiên cường, phục hồi nhanh|Children are often resilient.
+stagnant|trì trệ|The economy remained stagnant.
+albeit|mặc dù|It was a small, albeit useful, gain.
+mandatory|bắt buộc|Attendance is mandatory.
+obsolete|lỗi thời|Typewriters are now obsolete.
+surge|tăng vọt|A surge in demand occurred.
+tackle|giải quyết|We must tackle pollution.
+rigorous|nghiêm ngặt|The study used rigorous methods.
+profound|sâu sắc|The war had a profound impact.
+allocate|phân bổ|Funds were allocated to schools.
+inhibit|ngăn cản|Fear can inhibit learning.
+elaborate|trình bày chi tiết|Could you elaborate on that?
+`),toeic:R(`
+invoice|hóa đơn|Please send the invoice by Friday.
+revenue|doanh thu|Annual revenue rose by ten percent.
+negotiate|thương lượng|We will negotiate the contract.
+deadline|hạn chót|The deadline is next Monday.
+colleague|đồng nghiệp|My colleague is on leave.
+résumé|sơ yếu lý lịch|Attach your résumé to the email.
+agenda|chương trình nghị sự|Check the agenda before the meeting.
+supervisor|người giám sát|Ask your supervisor for approval.
+reimburse|hoàn tiền|The company will reimburse travel costs.
+warranty|bảo hành|The laptop has a two-year warranty.
+shipment|lô hàng|The shipment arrived late.
+inventory|hàng tồn kho|We check inventory every week.
+vendor|nhà cung cấp|The vendor offered a discount.
+postpone|hoãn lại|They postponed the meeting.
+candidate|ứng viên|Each candidate has an interview.
+branch|chi nhánh|The bank opened a new branch.
+purchase|mua hàng|You can purchase tickets online.
+refund|hoàn trả tiền|I requested a full refund.
+subscribe|đăng ký dài hạn|Subscribe to our newsletter.
+launch|ra mắt|The firm will launch a new product.
+budget|ngân sách|We are over budget.
+personnel|nhân sự|All personnel must wear badges.
+facility|cơ sở vật chất|The facility is open daily.
+attend|tham dự|Over fifty people attended the seminar.
+submit|nộp|Submit your report today.
+approve|phê duyệt|The manager approved the plan.
+confirm|xác nhận|Please confirm your reservation.
+estimate|ước tính|The estimate is about $500.
+contract|hợp đồng|Both sides signed the contract.
+delivery|giao hàng|Delivery takes three days.
+promotion|thăng chức, khuyến mãi|She received a promotion.
+salary|lương|His salary increased this year.
+retail|bán lẻ|She works in retail.
+renew|gia hạn|You must renew your license.
+audit|kiểm toán|An audit is due in May.
+merger|sáp nhập|The merger created a larger firm.
+shareholder|cổ đông|Shareholders voted on the plan.
+withdraw|rút (tiền)|He withdrew cash from the ATM.
+itinerary|lịch trình|Here is your travel itinerary.
+vacancy|vị trí trống|There is a vacancy in sales.
+quarterly|hàng quý|The quarterly report is ready.
+manufacture|sản xuất|They manufacture car parts.
+expire|hết hạn|The coupon expires tomorrow.
+complimentary|miễn phí|Breakfast is complimentary.
+enclosed|đính kèm|Enclosed is a copy of the form.
+mandatory|bắt buộc|Training is mandatory for staff.
+proficient|thành thạo|She is proficient in Excel.
+clientele|tập khách hàng|The shop has a loyal clientele.
+overdue|quá hạn|Your payment is overdue.
+`)};
+D.all=[...D.ielts,...D.toeic].filter((w,i,a)=>a.findIndex(x=>x[0]==w[0])==i);
+const $=document.getElementById('app');
+let S={mode:null,batch:[],i:0,view:'menu',ans:[]};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const ld=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+function newBatch(){
+ let seen=ld('seen',[]),pool=D[S.mode].filter(w=>!seen.includes(w[0]));
+ if(pool.length<10){seen=[];pool=D[S.mode].slice()}
+ pool.sort(()=>Math.random()-.5);S.batch=pool.slice(0,10);
+ sv('seen',seen.concat(S.batch.map(w=>w[0])));S.i=0;S.view='learn';draw();
+}
+function draw(){
+ if(S.view=='menu'){
+  $.innerHTML=`<div class="main"><h1>📚 Vocab</h1><p class="ex">Chọn bộ từ để học</p>
+  <button onclick="go('ielts')">IELTS</button><button onclick="go('toeic')">TOEIC</button><button class="alt" onclick="go('all')">Tất cả</button>
+  <p class="hint">Đã học: ${ld('seen',[]).length} từ</p></div>`;return}
+ if(S.view=='learn'){
+  const w=S.batch[S.i];
+  $.innerHTML=`<div class="top"><span onclick="S.view='menu';draw()">‹ Menu</span><span>${S.i+1}/10</span></div>
+  <div class="main" id="m"><div class="card"><h1>${w[0]}</h1><div class="vi">${w[1]}</div><div class="ex">${w[2]}</div></div></div>
+  <div class="hint">↑ Vuốt lên để tiếp tục</div>`;return}
+ if(S.view=='quiz'){
+  const w=S.batch[S.i];
+  $.innerHTML=`<div class="top"><span>Ôn tập</span><span>${S.i+1}/10</span></div>
+  <div class="main"><div class="card"><div class="vi">${w[1]}</div><div class="ex">Viết từ tiếng Anh</div>
+  <input id="a" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="..."></div>
+  <button onclick="chk()">Kiểm tra</button><button class="alt" onclick="skip()">Bỏ qua (không biết)</button></div>`;
+  const a=document.getElementById('a');a.focus();a.onkeydown=e=>{if(e.key=='Enter')chk()};return}
+ if(S.view=='result'){
+  const n=S.ans.filter(x=>x.ok).length;
+  $.innerHTML=`<div class="main"><h1>${n==10?'🎉':'💪'} ${n}/10</h1>
+  <div class="card" style="max-height:55%;overflow:auto;text-align:left">${S.ans.map(x=>`<div class="r"><span>${x.w[0]}</span><span class="${x.ok?'g':'b'}">${x.ok?'✓':x.skip?'bỏ qua':x.v||'(trống)'}</span></div>`).join('')}</div>
+  <button class="alt" onclick="S.i=0;S.ans=[];S.view='quiz';draw()">🔁 Làm lại</button><button onclick="newBatch()">Học tiếp ➜</button></div>`}
+}
+function go(m){S.mode=m;newBatch()}
+function skip(){S.ans.push({w:S.batch[S.i],v:'',ok:false,skip:true});if(++S.i>=10)S.view='result';draw()}
+function chk(){
+ const v=document.getElementById('a').value.trim(),w=S.batch[S.i];
+ S.ans.push({w,v,ok:v.toLowerCase()==w[0].toLowerCase()});
+ if(++S.i>=10)S.view='result';draw();
+}
+function next(){
+ const m=document.getElementById('m');if(m)m.classList.add('out');
+ setTimeout(()=>{
+  if(++S.i>=10){S.view='quiz';S.i=0;S.ans=[]}
+  draw()},200);
+}
+let y0=null;
+addEventListener('touchstart',e=>{y0=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',e=>{if(S.view=='learn'&&y0!=null&&y0-e.changedTouches[0].clientY>50)next();y0=null});
+addEventListener('keydown',e=>{if(S.view=='learn'&&(e.key=='ArrowUp'||e.key=='ArrowDown'))next()});
+draw();
+try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d');x.fillStyle='#4f6df5';x.fillRect(0,0,180,180);x.font='110px serif';x.textAlign='center';x.textBaseline='middle';x.fillText('📚',90,98);const l=document.createElement('link');l.rel='apple-touch-icon';l.href=c.toDataURL('image/png');document.head.appendChild(l)}catch(e){}
+</script></body></html>
